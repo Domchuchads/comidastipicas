@@ -1,0 +1,55 @@
+h1
+{
+    TextBox1.Font = New Font("Arial", 12)
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Bold)
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Italic)
+TextBox1.ForeColor = Color.Red
+TextBox1.BackColor = Color.Yellow
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Underline)
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Underline)
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Strikeout)
+TextBox1.Font = New Font(TextBox1.Font, FontStyle.Strikeout)
+TextBox1.TextAlign = HorizontalAlignment.Left
+TextBox1.TextAlign = HorizontalAlignment.Right
+TextBox1.TextAlign = HorizontalAlignment.Center
+Imports System.Windows.Forms
+ 
+Public Class Form1
+    Inherits Form
+ 
+    Private WithEvents listBox1 As New ListBox()
+ 
+    Public Sub New()
+        Me.Text = "Comidas Típicas de Ayacucho"
+        Me.Size = New Size(300, 400)
+        Me.StartPosition = FormStartPosition.CenterScreen
+ 
+        listBox1.Dock = DockStyle.Fill
+        listBox1.Font = New Font("Arial", 12)
+        listBox1.BackColor = Color.LightYellow
+        listBox1.ForeColor = Color.Blue
+ 
+        ' Agregar las comidas típicas a la lista
+        listBox1.Items.Add("Pachamanca")
+        listBox1.Items.Add("Anticuchos")
+        listBox1.Items.Add("Picante de Cuy")
+        listBox1.Items.Add("Chicharrón de Cerdo")
+        listBox1.Items.Add("Humitas")
+        listBox1.Items.Add("Tamales")
+        listBox1.Items.Add("Qapchi")
+        listBox1.Items.Add("Rocoto Relleno")
+ 
+        Me.Controls.Add(listBox1)
+    End Sub
+ 
+    Private Sub listBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles listBox1.SelectedIndexChanged
+        ' Mostrar el nombre de la comida seleccionada en un MessageBox
+        Dim selectedFood As String = listBox1.SelectedItem.ToString()
+        MessageBox.Show("Has seleccionado: " & selectedFood)
+    End Sub
+ 
+    Public Shared Sub Main()
+        Application.Run(New Form1())
+    End Sub
+End Class
+}
